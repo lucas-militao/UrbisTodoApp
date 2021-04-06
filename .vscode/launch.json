@@ -7,7 +7,6 @@
     {
       "type": "pwa-node",
       "request": "attach",
-      "protocol": "inspector",
       "restart": true,
       "name": "Debug",
       "skipFiles": ["<node_internals>/**"],
