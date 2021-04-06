@@ -4,5 +4,9 @@
   "port": 5432,
   "username": "postgres",
   "password": "docker",
-  "database": "urbis_todo_app"
+  "database": "urbis_todo_app",
+  "migrations": ["./src/database/migrations/*.ts"],
+  "cli": {
+    "migrationsDir": "./src/database/migrations"
+  }
 }
