@@ -1,7 +1,11 @@
 import { request, response, Router } from 'express';
 import { uuid } from 'uuidv4';
 
+import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+
 const tasksRouter = Router();
+
+tasksRouter.use(ensureAuthenticated);
 
 const tasks = [];
 
