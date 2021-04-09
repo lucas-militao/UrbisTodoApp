@@ -4,16 +4,16 @@ import Task from '../models/Task';
 
 interface Request {
   name: string;
-  responsible: string;
+  responsible_id: string;
 }
 
 class CreateTaskService {
-  public async execute({ name, responsible }: Request): Promise<Task> {
+  public async execute({ name, responsible_id }: Request): Promise<Task> {
     const taskRepository = getRepository(Task);
 
     const newTask = taskRepository.create({
       name,
-      responsible,
+      responsible_id,
       concluded: false,
     });
 
@@ -22,3 +22,5 @@ class CreateTaskService {
     return newTask;
   }
 }
+
+export default CreateTaskService;

@@ -9,7 +9,7 @@ class Task {
   name: string;
 
   @Column('uuid')
-  responsible: string;
+  responsible_id: string;
 
   @Column()
   concluded: boolean;

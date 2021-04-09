@@ -2,6 +2,7 @@ import { request, response, Router } from 'express';
 import { uuid } from 'uuidv4';
 
 import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import CreateTaskService from '../services/CreateTaskService';
 
 const tasksRouter = Router();
 
@@ -10,16 +11,14 @@ tasksRouter.use(ensureAuthenticated);
 const tasks = [];
 
 tasksRouter.post('/', async (request, response) => {
-  const { name, concluded, responsible } = request.body;
+  const { name, concluded } = request.body;
 
-  const newTask = {
-    id: uuid(),
+  const createTask = new CreateTaskService();
+
+  const newTask = createTask.execute({
     name,
-    concluded,
-    responsible,
-  };
-
-  tasks.push(newTask);
+    responsible_id: request.user.id,
+  });
 
   return response.json(newTask);
 });
