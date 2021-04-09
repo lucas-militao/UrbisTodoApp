@@ -25,7 +25,6 @@ export class CreateTask1617905389308 implements MigrationInterface {
           {
             name: 'responsible_id',
             type: 'uuid',
-            isUnique: true,
             isNullable: false,
           },
           {

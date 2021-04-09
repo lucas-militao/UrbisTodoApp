@@ -1,6 +1,7 @@
-import { getRepository } from 'typeorm';
+import { getCustomRepository } from 'typeorm';
 
 import Task from '../models/Task';
+import TasksRepository from '../repositories/TasksRepository';
 
 interface Request {
   name: string;
@@ -9,7 +10,7 @@ interface Request {
 
 class CreateTaskService {
   public async execute({ name, responsible_id }: Request): Promise<Task> {
-    const taskRepository = getRepository(Task);
+    const taskRepository = getCustomRepository(TasksRepository);
 
     const newTask = taskRepository.create({
       name,
