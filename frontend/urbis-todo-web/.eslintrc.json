@@ -16,10 +16,37 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "no-restricted-globals": [
+      "error",
+      {
+        "name": "event",
+        "message": "Use local parameter instead."
+      },
+      {
+        "name": "fdescribe",
+        "message": "Do not commit fdescribe. Use describe instead."
+      }
+    ],
     "import/prefer-default-export": "off",
     "no-use-before-define": "off",
     "react/prop-types": "off",
     "@typescript-eslint/no-use-before-define": ["error"],
+    "@typescript-eslint/ban-types": [
+      "error",
+      {
+        "types": {
+          "String": false,
+          "Boolean": false,
+          "Number": false,
+          "Symbol": false,
+          "{}": false,
+          "Object": false,
+          "object": false,
+          "Function": false
+        },
+        "extendDefaults": true
+      }
+    ],
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
     "import/extensions": [
