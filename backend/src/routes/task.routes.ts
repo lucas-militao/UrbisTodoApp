@@ -30,32 +30,8 @@ tasksRouter.get('/', async (request, response) => {
   return response.json(tasks);
 });
 
-tasksRouter.put('/:id', async (request, response) => {
-  // const { id } = request.params;
-  // const { name, concluded } = request.body;
-  // const tasksIndex = tasks.findIndex(task => task.id === id);
-  // if (tasksIndex < 0) {
-  //   return response.status(400).json({ message: 'tarefa não encontrada!' });
-  // }
-  // const responsible = tasks[tasksIndex].responsible;
-  // const newTask = {
-  //   id,
-  //   name,
-  //   responsible,
-  //   concluded,
-  // };
-  // tasks[tasksIndex] = newTask;
-  // return response.json(newTask);
-});
+tasksRouter.put('/:id', async (request, response) => {});
 
-tasksRouter.delete('/:id', async (request, response) => {
-  // const { id } = request.params;
-  // const tasksIndex = tasks.findIndex(task => task.id === id);
-  // if (tasksIndex < 0) {
-  //   return response.status(400).json({ message: 'tarefa não encontrada!' });
-  // }
-  // tasks.splice(tasksIndex, 1);
-  // return response.status(204).send();
-});
+tasksRouter.delete('/:id', async (request, response) => {});
 
 export default tasksRouter;
