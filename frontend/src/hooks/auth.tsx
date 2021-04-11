@@ -17,11 +17,9 @@ interface AuthContextData {
   signOut(): void;
 }
 
-export const AuthContext = createContext<AuthContextData>(
-  {} as AuthContextData,
-);
+const AuthContext = createContext<AuthContextData>({} as AuthContextData);
 
-export const AuthProvider: React.FC = ({ children }) => {
+const AuthProvider: React.FC = ({ children }) => {
   const [data, setData] = useState<AuthState>(() => {
     const token = localStorage.getItem('@UrbisTodoApp:token');
     const user = localStorage.getItem('@UrbisTodoApp:user');
@@ -71,4 +69,4 @@ function useAuth(): AuthContextData {
   return context;
 }
 
-export default { AuthContext, useAuth };
+export { AuthProvider, useAuth };
