@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useState } from 'react';
+import React, { createContext, useCallback, useState, useContext } from 'react';
 import api from '../services/api';
 
 interface AuthState {
@@ -14,6 +14,7 @@ interface SignInCredentials {
 interface AuthContextData {
   user: object;
   signIn(credentials: SignInCredentials): Promise<void>;
+  signOut(): void;
 }
 
 export const AuthContext = createContext<AuthContextData>(
@@ -46,11 +47,28 @@ export const AuthProvider: React.FC = ({ children }) => {
     setData({ token, user });
   }, []);
 
+  const signOut = useCallback(() => {
+    localStorage.removeItem('@UrbisTodoApp:token');
+    localStorage.removeItem('@UrbisTodoApp:user');
+
+    setData({} as AuthState);
+  }, []);
+
   return (
-    <AuthContext.Provider value={{ user: data.user, signIn }}>
+    <AuthContext.Provider value={{ user: data.user, signIn, signOut }}>
       {children}
     </AuthContext.Provider>
   );
 };
 
-export default AuthContext;
+function useAuth(): AuthContextData {
+  const context = useContext(AuthContext);
+
+  if (!context) {
+    throw new Error('useAuth must be used within an AuthProvider');
+  }
+
+  return context;
+}
+
+export default { AuthContext, useAuth };
