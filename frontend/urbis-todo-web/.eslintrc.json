@@ -16,6 +16,8 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "rules": {
+    "no-empty-function": "off",
+    "@typescript-eslint/no-empty-function": ["error"],
     "@typescript-eslint/no-unused-vars": "off",
     "no-console": "off",
     "no-restricted-syntax": [
