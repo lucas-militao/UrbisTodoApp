@@ -1,10 +1,11 @@
 import React from 'react';
+import NavBar from '../../components/NavBar';
 import { Text } from './styles';
 
 const HomePage: React.FC = () => {
   return (
     <div>
-      <h1>OLAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+      <NavBar />
     </div>
   );
 };
