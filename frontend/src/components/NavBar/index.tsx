@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiUser } from 'react-icons/fi';
+import { FiUser, FiLogOut } from 'react-icons/fi';
 import { Container } from './style';
 
 const NavBar: React.FC = () => {
@@ -9,7 +9,9 @@ const NavBar: React.FC = () => {
         <FiUser className="userIcon" />
 
         <div className="dropDownContent">
-          <a href="#">Sign out</a>
+          <a href="#">
+            Sign out <FiLogOut />
+          </a>
         </div>
       </a>
     </Container>

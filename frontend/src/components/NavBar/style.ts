@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   margin: 0;
-  overflow: hidden;
+  position: relative;
   background-color: white;
   box-shadow: 0px 0px 10px grey;
 
@@ -18,6 +18,7 @@ export const Container = styled.div`
     border: #000 solid 1px;
     padding: 10px;
     margin: 8px;
+    cursor: pointer;
     transition: color 0.2s;
   }
 
@@ -40,16 +41,15 @@ export const Container = styled.div`
   .dropDownContent a {
     float: none;
     color: black;
-    height: 200px;
-    width: 500px;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
     text-align: left;
+    transition: color 0.2s;
   }
 
   .dropDownContent a:hover {
-    background-color: #ddd;
+    color: #a7a7a7;
   }
 
   .dropDownBtn:hover .dropDownContent {
